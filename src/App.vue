@@ -7,14 +7,19 @@
       ></live-price>
     </header>
     <network-introduction></network-introduction>
+    <trade-type v-for="(tradeType) in tradesType" :type="tradeType"></trade-type>
   </div>
 </template>
 
 <script setup>
 import LivePrice from "./components/LivePrice.vue";
+import TradeType from "./components/TradeType.vue";
 import {ref} from "vue";
 import axios from "axios";
 import NetworkIntroduction from "./components/NetworkIntroduction.vue";
+
+
+const tradesType = ["futures", "spot"];
 
 const BTC = ref({symbol: 'Loading...', price: 'N/A', change24H: "0"})
 const ETH = ref({symbol: 'Loading...', price: 'N/A', change24H: "0"})
@@ -35,7 +40,7 @@ const updateCurrencies = () => {
     ETH.value.change24H = data.data[1].changePercent24Hr
 
   }).catch((err) => {
-    console.warn(err)
+    console.log(err)
   })
 }
 
@@ -64,7 +69,7 @@ header {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 5px;
+  padding: 5px !important;
 }
 
 #app {
@@ -84,5 +89,6 @@ header {
   padding: 0;
   box-sizing: border-box;
   color: var(--textColor);
+  scroll-behavior: smooth;
 }
 </style>

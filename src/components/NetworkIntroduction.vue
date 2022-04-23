@@ -17,11 +17,12 @@ export default {
 
 <style lang="scss" scoped>
 .network-introduction__container {
-  display: flex;;
+  display: flex;
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
-  margin: 25px 0 50px;
+  margin: 25px 0;
+  padding: 0 5px;
 
 
   img {
