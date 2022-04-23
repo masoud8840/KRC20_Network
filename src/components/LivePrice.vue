@@ -1,17 +1,28 @@
 <template>
   <div class="live-price__container">
     <img src="/src/assets/images/LivePrice.png" alt="live_price_bg"/>
-    <div class="live-price__info">
+    <div class="live-price__info" v-if="true">
       <h3 class="symbol">{{ showSymbol }}</h3>
       <p class="price">{{ showPrice }}</p>
       <span class="change24H" :class="change24HPriceStyleSetter">{{ show24HChange }}%</span>
     </div>
+    <loading-spinner
+        :active="isLoading"
+        color="#fafafa"
+        background-color="#fff200"
+        :opacity="0"
+        blur="20"
+        :width="96"
+        :height="96"
+    ></loading-spinner>
   </div>
 </template>
 
 <script setup>
-import {computed} from "vue";
+import {computed, ref} from "vue";
+import LoadingSpinner from "vue-loading-overlay"
 
+const isLoading = ref(true)
 const props = defineProps(["symbol", "price", "change24H"]);
 
 const change24HPriceStyleSetter = computed(() => {
@@ -19,11 +30,10 @@ const change24HPriceStyleSetter = computed(() => {
   else return "negative-change";
 });
 
-const showPrice = computed (() => {
+const showPrice = computed(() => {
   if (isNaN(props.price)) {
-    return "loading..."
-
   } else {
+    isLoading.value = false
     return props.price
   }
 })
@@ -47,7 +57,7 @@ const show24HChange = computed(() => {
   margin: 20px;
 
   img {
-    max-width: 230px;
+    max-width: 140px;
     pointer-events: none;
   }
 
@@ -84,6 +94,40 @@ const show24HChange = computed(() => {
 
     .negative-change {
       color: var(--negativePriceChange);
+    }
+  }
+
+  .vld-overlay {
+    position: absolute;;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Media Queries
+// Medium Mobile Device
+@media (min-width: 375px) {
+  .live-price__container {
+    img {
+      max-width: 165px;
+    }
+  }
+}
+
+// Large Mobile Device
+@media (min-width: 425px) {
+  .live-price__container {
+    img {
+      max-width: 190px;
+    }
+  }
+}
+// Tablet Device
+@media (min-width: 768px) {
+  .live-price__container {
+    img {
+      max-width: 220px;
     }
   }
 }
