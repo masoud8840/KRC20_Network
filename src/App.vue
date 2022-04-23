@@ -6,13 +6,15 @@
       <live-price :symbol="ETH.symbol" :price="ETH.price" :change24-h="ETH.change24H"
       ></live-price>
     </header>
+    <network-introduction></network-introduction>
   </div>
 </template>
 
 <script setup>
 import LivePrice from "./components/LivePrice.vue";
 import {ref} from "vue";
-import axios from "axios"
+import axios from "axios";
+import NetworkIntroduction from "./components/NetworkIntroduction.vue";
 
 const BTC = ref({symbol: 'Loading...', price: 'N/A', change24H: "0"})
 const ETH = ref({symbol: 'Loading...', price: 'N/A', change24H: "0"})
@@ -62,6 +64,7 @@ header {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 5px;
 }
 
 #app {
@@ -80,5 +83,6 @@ header {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: var(--textColor);
 }
 </style>

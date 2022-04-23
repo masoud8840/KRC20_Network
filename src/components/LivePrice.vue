@@ -31,8 +31,7 @@ const change24HPriceStyleSetter = computed(() => {
 });
 
 const showPrice = computed(() => {
-  if (isNaN(props.price)) {
-  } else {
+  if (!isNaN(props.price)) {
     isLoading.value = false
     return props.price
   }
@@ -74,18 +73,14 @@ const show24HChange = computed(() => {
 
     h3 {
       font: 700 32px "Open Sans";
-      color: var(--textColor);
     }
 
     p {
       font: 300 19px "Open Sans";
-      color: var(--textColor);
-      margin: 10px 0 5px;
     }
 
     span {
       font: 500 17px "Open Sans";
-      color: var(--textColor);
     }
 
     .positive-change {
@@ -112,7 +107,15 @@ const show24HChange = computed(() => {
     img {
       max-width: 165px;
     }
+
+    .live-price__info {
+      p {
+        margin: 10px 0 5px;
+      }
+    }
   }
+
+
 }
 
 // Large Mobile Device
@@ -123,6 +126,7 @@ const show24HChange = computed(() => {
     }
   }
 }
+
 // Tablet Device
 @media (min-width: 768px) {
   .live-price__container {
