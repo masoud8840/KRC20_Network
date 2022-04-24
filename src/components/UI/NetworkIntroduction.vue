@@ -61,23 +61,23 @@ export default {
   }
 }
 
+@media (min-width: 425px) {
+  .network-introduction__description {
+    h3 {
+      font-size: 48px !important;
+    }
+
+    p {
+      font-size: 17px !important;
+    }
+  }
+}
 // Tablet Device
 @media (min-width: 768px) {
   img {
     max-width: 400px !important;
     margin: 0 auto;
   }
-  .network-introduction__description {
-    h3 {
-      font-size: 60px !important;
-      margin-bottom: 25px;
-      line-height: 1 !important;
 
-    }
-
-    p {
-      font-size: 19px !important;
-    }
-  }
 }
 </style>

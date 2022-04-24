@@ -1,4 +1,5 @@
 <template>
+    <the-header></the-header>
   <div class="container">
     <header>
       <live-price :symbol="BTC.symbol" :price="BTC.price" :change24-h="BTC.change24H"
@@ -9,16 +10,19 @@
     <network-introduction></network-introduction>
     <trade-type v-for="(tradeType) in tradesType" :type="tradeType"></trade-type>
     <containing-contents></containing-contents>
+    <the-footer></the-footer>
   </div>
 </template>
 
 <script setup>
-import LivePrice from "./components/LivePrice.vue";
-import TradeType from "./components/TradeType.vue";
-import ContainingContents from "./components/ContainingContents.vue"
+import LivePrice from "./components/UI/LivePrice.vue";
+import TradeType from "./components/UI/TradeType.vue";
+import ContainingContents from "./components/UI/ContainingContents.vue"
+import TheHeader from "./components/layout/TheHeader.vue"
+import TheFooter from "./components/layout/TheFooter.vue";
 import {ref} from "vue";
 import axios from "axios";
-import NetworkIntroduction from "./components/NetworkIntroduction.vue";
+import NetworkIntroduction from "./components/UI/NetworkIntroduction.vue";
 
 
 const tradesType = ["futures", "spot"];

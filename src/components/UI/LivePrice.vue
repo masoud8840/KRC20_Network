@@ -9,9 +9,9 @@
     <loading-spinner
         :active="isLoading"
         color="#fafafa"
-        background-color="#fff200"
-        :opacity="0"
-        blur="20"
+        background-color="#000"
+        :opacity="0.2"
+        blur="1.5"
         :width="96"
         :height="96"
     ></loading-spinner>

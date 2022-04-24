@@ -62,4 +62,24 @@ const hoverLinkHandler = (event) => {
     }
   }
 }
+
+// Media Queries
+// MediumMobile Device
+@media (min-width: 375px) {
+  .trade-type__container {
+    height: 350px;
+  }
+}
+// Tablet
+@media (min-width: 425px) {
+  .trade-type__container {
+    height: 500px;
+    h3 {
+      font-size: 44px !important;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+}
 </style>

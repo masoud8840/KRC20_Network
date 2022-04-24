@@ -36,9 +36,9 @@
   p {
     position: absolute;;
     left: 50%;
-    top: 50%;
+    top: 45%;
     transform: translate(-50%, -50%);
-    font: 700 16px "Open Sans";
+    font: 700 15px "Open Sans";
   }
 }
 
@@ -53,4 +53,14 @@
   }
 }
 
+// Media Queries
+// LargeMobile Device
+@media (min-width: 425px) {
+  .containing-content__holder {
+    p {
+      font-size: 18px;
+      top: 50%;
+    }
+  }
+}
 </style>
