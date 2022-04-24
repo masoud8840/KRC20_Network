@@ -1,34 +1,43 @@
 <template>
   <div class="containing-contents__container">
     <div class="containing-contents__item ltr">
-      <img src="/src/assets/images/Contents_LTR.png" alt="img">
-      <p>Markets</p>
+      <div class="containing-content__holder">
+        <img src="/src/assets/images/Contents_LTR.png" alt="img">
+        <p>Markets</p>
+      </div>
     </div>
     <div class="containing-contents__item rtl">
-      <img src="/src/assets/images/Contents_RTL.png" alt="img">
-      <p>Defi</p>
+      <div class="containing-content__holder">
+        <img src="/src/assets/images/Contents_RTL.png" alt="img">
+        <p>Defi</p>
+      </div>
     </div>
     <div class="containing-contents__item ltr">
-      <img src="/src/assets/images/Contents_LTR.png" alt="img">
-      <p>RSI maker</p>
+      <div class="containing-content__holder">
+        <img src="/src/assets/images/Contents_LTR.png" alt="img">
+        <p>RSI maker</p>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .containing-contents__item {
-  padding: 20px 0;
-  position: relative;
 
-  img {
-    width: 50%;
+  .containing-content__holder {
+    max-width: 50%;
+    position: relative;
+
+    img {
+      width: 100%;
+    }
   }
 
   p {
     position: absolute;;
-    left: 15%;
-    top: calc(50% - 2px);
-    transform: translateY(-50%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     font: 700 16px "Open Sans";
   }
 }
@@ -39,7 +48,8 @@
 
   p {
     left: initial;
-    right: 15%;
+    right: 37%;
+    transform: translate(-50%, -50%);
   }
 }
 
