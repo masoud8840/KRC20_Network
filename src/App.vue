@@ -8,12 +8,14 @@
     </header>
     <network-introduction></network-introduction>
     <trade-type v-for="(tradeType) in tradesType" :type="tradeType"></trade-type>
+    <containing-contents></containing-contents>
   </div>
 </template>
 
 <script setup>
 import LivePrice from "./components/LivePrice.vue";
 import TradeType from "./components/TradeType.vue";
+import ContainingContents from "./components/ContainingContents.vue"
 import {ref} from "vue";
 import axios from "axios";
 import NetworkIntroduction from "./components/NetworkIntroduction.vue";
@@ -69,7 +71,6 @@ header {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 5px !important;
 }
 
 #app {
