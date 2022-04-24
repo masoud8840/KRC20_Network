@@ -1,6 +1,6 @@
 <template>
   <div class="header__container ">
-    <nav class="header__navigation container">
+    <nav class="header__navigation">
       <a href="./index.html">
         <img src="/src/assets/images/Navigation_Icon.png" alt="logo">
       </a>
@@ -11,7 +11,7 @@
         <li><a class="btn__secondary btn__register" href="#register">Register</a></li>
       </ul>
     </nav>
-    <div class="header__content container">
+    <div class="header__content">
       <h1>CoperCoin</h1>
       <p>development of copper industry in smart chain network utilizing blockchain infrastructure</p>
     </div>

@@ -1,6 +1,6 @@
 <template>
+  <div class="container" v-if="!isDesktop">
     <the-header></the-header>
-  <div class="container">
     <header>
       <live-price :symbol="BTC.symbol" :price="BTC.price" :change24-h="BTC.change24H"
       ></live-price>
@@ -12,6 +12,7 @@
     <containing-contents></containing-contents>
     <the-footer></the-footer>
   </div>
+  <the-desktop v-else></the-desktop>
 </template>
 
 <script setup>
@@ -20,9 +21,17 @@ import TradeType from "./components/UI/TradeType.vue";
 import ContainingContents from "./components/UI/ContainingContents.vue"
 import TheHeader from "./components/layout/TheHeader.vue"
 import TheFooter from "./components/layout/TheFooter.vue";
-import {ref} from "vue";
+import TheDesktop from "./components/TheDesktop.vue"
+import {onMounted, ref} from "vue";
 import axios from "axios";
 import NetworkIntroduction from "./components/UI/NetworkIntroduction.vue";
+
+
+const isDesktop = ref(false)
+onMounted(() => {
+  isDesktop.value = !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent));
+});
 
 
 const tradesType = ["futures", "spot"];
