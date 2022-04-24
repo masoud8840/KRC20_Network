@@ -4,25 +4,15 @@
     <p>Carry out your futures trades in complete data security according to our smart contracts</p>
     <a :href="`#${props.type}`" class="trade-type__link" @mouseenter="hoverLinkHandler" @mouseleave="hoverLinkHandler">
       Go To Trade
-      <img :src="imgSourceOnHover" alt="link-img">
+      <img src="/src/assets/images/GoToTradeBtn.png" alt="link-img">
     </a>
   </div>
 </template>
 
 <script setup>
-import {computed, ref} from "vue";
 
 const props = defineProps(['type'])
 
-const isHover = ref(false);
-const imgSourceOnHover = computed(() => {
-  if (isHover.value === false)
-    return "/src/assets/images/GoToTradeBtn.png"
-  else return "/src/assets/images/GoToTradeFilled.png"
-})
-const hoverLinkHandler = (event) => {
-  isHover.value = event.type === 'mouseenter';
-}
 </script>
 
 <style lang="scss" scoped>
